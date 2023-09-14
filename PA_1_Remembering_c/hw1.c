@@ -5,11 +5,13 @@
 #define M 6
 
 void matrixArrayOfArrays(int n, int m){
+    int counter = 1;
     float **col = (float **)malloc(m * sizeof(float*));
     for (int i = 0; i<m; i++){
         col[i] = malloc(n * sizeof(float));
         for(int j = 1; j<=n; j++){
-            col[i][j-1] = i+j;
+            col[i][j-1] = counter;
+            counter++;
         }
     }
     //Like matrix
@@ -26,6 +28,11 @@ void matrixArrayOfArrays(int n, int m){
         }
         printf("\n");
     }
+    for (int i = 0; i<m; i++){
+        free(col[i]);
+    }
+    free(col);
+
 }
 
 void matrixOneBigArray(int n, int m){
