@@ -36,6 +36,36 @@ void matrixArrayOfArrays(int n, int m){
 }
 
 void matrixOneBigArray(int n, int m){
+    float** col = (float**)malloc(m * sizeof(float*));
+    float* bigBoy = malloc(n * m * sizeof(float));
+    int counter1 = 0;
+    float counter2 = 1;
+    for(int i = 0; i<m; i++){
+        for(int j = 0; j<n; j++){
+            if (j == 0){
+                col[i] = &bigBoy[counter1];
+            }
+            bigBoy[counter1] = counter2;
+            counter1++;
+            counter2++;
+        }
+    }
+    //Like Matrix
+    for (int i = 0; i < m; i++){
+        for(int j = 0; j<n; j++){
+            printf("%f\t", col[i][j]);
+        }
+        printf("\n");
+    }
+    //Transposed
+    for (int i = 0; i<n; i++){
+        for (int j = 0; j<m; j++){
+            printf("%f\t", col[j][i]);
+        }
+        printf("\n");
+    }
+    free(bigBoy);
+    free(col);
 
 }
 
