@@ -12,19 +12,28 @@ void matrixArrayOfArrays(int n, int m){
             col[i][j-1] = i+j;
         }
     }
+    //Like matrix
     for (int i = 0; i<m; i++){
         for (int j = 0; j<n; j++){
-            printf("%f", col[i][j]);
+            printf("%f\t", col[i][j]);
         }
-        free(col[i]);
-        printf("\t");
+        printf("\n");
     }
-    free(col);
+    //Transposed
+    for (int i = 0; i<n; i++){
+        for (int j = 0; j<m; j++){
+            printf("%f\t", col[j][i]);
+        }
+        printf("\n");
+    }
 }
 
+void matrixOneBigArray(int n, int m){
+
+}
 
 int main(int argc,char** argv){
 matrixArrayOfArrays(N,M);
-//matrixOneBigArray(N,M);
+matrixOneBigArray(N,M);
 return 0;
 }
